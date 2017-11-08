@@ -1,160 +1,171 @@
+// Action get Products
 const getProductsRequest = () => {
-  return {
-    type: "GET_PRODUCTS_REQUEST"
-  }
-}
+    return {
+        type: "GET_PRODUCTS_REQUEST"
+    }
+};
+
 const getProductsFinished = (response) => {
-  return {
-    type: "GET_PRODUCTS_FINISHED",
-    response: response
-  }
-}
+    return {
+        type: "GET_PRODUCTS_FINISHED",
+        response: response
+    }
+};
+
 export const getProducts = (payload) => {
-  return dispatch => {
-    dispatch(getProductsRequest());
-    return new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
-      request.open("POST", "http://localhost:3000/graphql", true);
-      request.setRequestHeader("Content-Type",
-        "application/graphql");
-      request.send(payload);
-      request.onreadystatechange = () => {
-        if (request.readyState === 4) {
-          resolve(request.responseText)
-        }
-      }
-    }).then(response => {
-      console.log('get Products: ', response);
-      dispatch(getProductsFinished(JSON.parse(response)))
-    })
-  }
-}
+    return dispatch => {
+        dispatch(getProductsRequest());
+        return new Promise(function (resolve, reject) {
+            let request = new XMLHttpRequest();
+            request.open("POST", "http://localhost:3000/graphql", true);
+            request.setRequestHeader("Content-Type",
+                "application/graphql");
+            request.send(payload);
+            request.onreadystatechange = () => {
+                if (request.readyState === 4) {
+                    resolve(request.responseText)
+                }
+            }
+        }).then(response => {
+            dispatch(getProductsFinished(JSON.parse(response)))
+        })
+    }
+};
 
-
+// Action get Product by id.
 const getProductRequest = () => {
-  return {
-    type: "GET_PRODUCT_REQUEST"
-  }
-}
+    return {
+        type: "GET_PRODUCT_REQUEST"
+    }
+};
+
 const getProductFinished = (response) => {
-  return {
-    type: "GET_PRODUCT_FINISHED",
-    response: response
-  }
-}
+    return {
+        type: "GET_PRODUCT_FINISHED",
+        response: response
+    }
+};
+
 export const getProduct = (payload) => {
-  return dispatch => {
-    dispatch(getProductRequest());
-    return new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
-      request.open("POST", "http://localhost:3000/graphql", true);
-      request.setRequestHeader("Content-Type",
-        "application/graphql");
-      request.send(payload);
-      request.onreadystatechange = () => {
-        if (request.readyState === 4) {
-          resolve(request.responseText)
-        }
-      }
-    }).then(response => {
-      console.log('Get Product: ', response);
-      dispatch(getProductFinished(JSON.parse(response)))
-    })
-  }
-}
+    return dispatch => {
+        dispatch(getProductRequest());
+        return new Promise(function (resolve, reject) {
+            let request = new XMLHttpRequest();
+            request.open("POST", "http://localhost:3000/graphql", true);
+            request.setRequestHeader("Content-Type",
+                "application/graphql");
+            request.send(payload);
+            request.onreadystatechange = () => {
+                if (request.readyState === 4) {
+                    resolve(request.responseText)
+                }
+            }
+        }).then(response => {
+            dispatch(getProductFinished(JSON.parse(response)))
+        })
+    }
+};
 
+
+// Action add a Product.
 const addProductRequest = () => {
-  return {
-    type: "ADD_PRODUCT_REQUEST"
-  }
-}
+    return {
+        type: "ADD_PRODUCT_REQUEST"
+    }
+};
+
 const addProductFinished = (response) => {
-  return {
-    type: "ADD_PRODUCT_FINISHED",
-    response: response
-  }
-}
+    return {
+        type: "ADD_PRODUCT_FINISHED",
+        response: response
+    }
+};
+
 export const addProduct = (payload) => {
-  return dispatch => {
-    dispatch(addProductRequest());
-    return new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
-      request.open("POST", "http://localhost:3000/graphql", true);
-      request.setRequestHeader("Content-Type",
-        "application/graphql");
-      request.send(payload);
-      request.onreadystatechange = () => {
-        if (request.readyState === 4) {
-          resolve(request.responseText)
-        }
-      }
-    }).then(response => {
-      console.log('Add Product: ', response);
-      dispatch(addProductFinished(JSON.parse(response)))
-    })
-  }
-}
+    return dispatch => {
+        dispatch(addProductRequest());
+        return new Promise(function (resolve, reject) {
+            let request = new XMLHttpRequest();
+            request.open("POST", "http://localhost:3000/graphql", true);
+            request.setRequestHeader("Content-Type",
+                "application/graphql");
+            request.send(payload);
+            request.onreadystatechange = () => {
+                if (request.readyState === 4) {
+                    resolve(request.responseText)
+                }
+            }
+        }).then(response => {
+            dispatch(addProductFinished(JSON.parse(response)))
+        })
+    }
+};
 
+// Action edit product.
 const editProductRequest = () => {
-  return {
-    type: "EDIT_PRODUCT_REQUEST"
-  }
-}
-const editProductFinished = (response) => {
-  return {
-    type: "EDIT_PRODUCT_FINISHED",
-    response: response
-  }
-}
-export const editProduct = (payload) => {
-  return dispatch => {
-    dispatch(editProductRequest());
-    return new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
-      request.open("POST", "http://localhost:3000/graphql", true);
-      request.setRequestHeader("Content-Type",
-        "application/graphql");
-      request.send(payload);
-      request.onreadystatechange = () => {
-        if (request.readyState === 4) {
-          resolve(request.responseText)
-        }
-      }
-    }).then(response => {
-      console.log('Edit Product: ', response);
-      dispatch(editProductFinished(JSON.parse(response)))
-    })
-  }
-}
+    return {
+        type: "EDIT_PRODUCT_REQUEST"
+    }
+};
 
+const editProductFinished = (response) => {
+    return {
+        type: "EDIT_PRODUCT_FINISHED",
+        response: response
+    }
+};
+
+export const editProduct = (payload) => {
+    return dispatch => {
+        dispatch(editProductRequest());
+        return new Promise(function (resolve, reject) {
+            let request = new XMLHttpRequest();
+            request.open("POST", "http://localhost:3000/graphql", true);
+            request.setRequestHeader("Content-Type",
+                "application/graphql");
+            request.send(payload);
+            request.onreadystatechange = () => {
+                if (request.readyState === 4) {
+                    resolve(request.responseText)
+                }
+            }
+        }).then(response => {
+            dispatch(editProductFinished(JSON.parse(response)))
+        })
+    }
+};
+
+
+// Action remove product.
 const removeProductRequest = () => {
-  return {
-    type: "REMOVE_PRODUCT_REQUEST"
-  }
-}
+    return {
+        type: "REMOVE_PRODUCT_REQUEST"
+    }
+};
+
 const removeProductFinished = (response) => {
-  return {
-    type: "REMOVE_PRODUCT_FINISHED",
-    response: response
-  }
-}
+    return {
+        type: "REMOVE_PRODUCT_FINISHED",
+        response: response
+    }
+};
+
 export const removeProduct = (payload) => {
-  return dispatch => {
-    dispatch(removeProductRequest());
-    return new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
-      request.open("POST", "http://localhost:3000/graphql", true);
-      request.setRequestHeader("Content-Type",
-        "application/graphql");
-      request.send(payload);
-      request.onreadystatechange = () => {
-        if (request.readyState === 4) {
-          resolve(request.responseText)
-        }
-      }
-    }).then(response => {
-      console.log('Remove Product: ', response);
-      dispatch(removeProductFinished(JSON.parse(response)))
-    })
-  }
-}
+    return dispatch => {
+        dispatch(removeProductRequest());
+        return new Promise(function (resolve, reject) {
+            let request = new XMLHttpRequest();
+            request.open("POST", "http://localhost:3000/graphql", true);
+            request.setRequestHeader("Content-Type",
+                "application/graphql");
+            request.send(payload);
+            request.onreadystatechange = () => {
+                if (request.readyState === 4) {
+                    resolve(request.responseText)
+                }
+            }
+        }).then(response => {
+            dispatch(removeProductFinished(JSON.parse(response)))
+        })
+    }
+};
