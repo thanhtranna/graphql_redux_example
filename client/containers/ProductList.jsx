@@ -16,12 +16,13 @@ class ProductList extends React.Component {
 
     render() {
         const {products, fetching, removeProduct} = this.props;
+        if (!products) return <div>Loading.....</div>;
         return (<div style={{
             textAlign: "center"
         }}>
             <h1>List of Products</h1>
             {
-                products && products.map(product => {
+                products.map(product => {
                     return (
                         <div style={{width: "300px", margin: "0 auto"}} key={product._id}>
                             <div style={{
