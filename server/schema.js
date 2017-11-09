@@ -12,7 +12,7 @@ import {
   GraphQLNonNull
 } from 'graphql';
 
-const MongoClient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 let productsCollection;
 

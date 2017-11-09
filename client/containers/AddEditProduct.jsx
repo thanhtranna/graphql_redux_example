@@ -19,8 +19,9 @@ class AddEditProduct extends React.Component {
 
     addOrEdit(data) {
         const {params, addProduct, editProduct} = this.props;
-        console.log(this.props);
+        // console.log(this.props);
         let dataStr = '';
+
         if (params.id !== undefined) {
 
             dataStr += `id: "${params.id}", data: {`;
@@ -37,7 +38,6 @@ class AddEditProduct extends React.Component {
                 dataStr += `image: "${data.image}" `;
             dataStr += `}`;
 
-            console.log(dataStr);
             editProduct(`mutation{editProduct(${dataStr}){_id, name}}`).then(() => {
                 browserHistory.push('/products');
             }, (error) => console.log(error));
@@ -57,7 +57,6 @@ class AddEditProduct extends React.Component {
                 dataStr += `image: "${data.image}" `;
             dataStr += `}`;
 
-            console.log(dataStr);
             addProduct(`mutation{addProduct(${dataStr}){_id, name}}`).then(() => {
                 browserHistory.push('/products');
             }, (error) => console.log(error));
